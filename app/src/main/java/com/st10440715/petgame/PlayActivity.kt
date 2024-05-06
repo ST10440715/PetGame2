@@ -3,6 +3,7 @@ package com.st10440715.petgame
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
+import android.widget.TextView
 
 class PlayActivity : AppCompatActivity() {
 
@@ -13,35 +14,30 @@ class PlayActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play)
+        val PlayPoints = findViewById<TextView>(R.id.PlayPoints)
+        PlayPointsTextView.text= panda
 
-
-        fun PlayPet() {
-            imageview:tvPet
-            imageview.setImageResource(R.firstImagePlay)
-            val btnPlay = findViewById<Button>(R.id.btnPlay)
-            btnPlay.setOnClickListener {
-                PlayPet()
-                intPlayPoints = 10
-                UpdateStatus()
-            }
+        val btnEat= findViewById<Button>(R.id.btnEat)
+        btnEat.setOnClickListener {
+            panda.eat()
+            updateStatus()
         }
-
-        fun FeedPet() {
-            val btnEat = findViewById<Button>(R.id.btnEat)
-            btnEat.setOnClickListener {
-                FeedPet()
-                intEatPoints = 15
-            }
+        val btnPlay= findViewById<Button>(R.id.btnPlay)
+        btnPlay.setOnClickListener {
+            panda.play()
+            updateStatus()
         }
-
-        fun CleanPet() {
-            val btnClean = findViewById<Button>(R.id.btnClean)
-            btnClean.setOnClickListener {
-                CleanPet()
-                intCleanPoints = 20
-
-            }
+        val btnClean= findViewById<Button>(R.id.btnClean)
+        btnClean. setOnClickListener {
+            panda.clean()
+            updateStatus()
         }
+        //updateStatus initially updateStatus()
 
     }
-}
+    private fun updateStatus(){
+        var PlayPoints= findViewById<TextView>(R.id.PlayPoints)
+        val status = "Play:${panda.EatLevel},Play:${panda.Playlevel},Clean:${panda.CleanLeve}"
+        PlayPoints= Status
+
+    }    }
