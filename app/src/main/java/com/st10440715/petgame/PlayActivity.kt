@@ -7,37 +7,28 @@ import android.widget.TextView
 
 class PlayActivity : AppCompatActivity() {
 
-    var intPlayPoints: Int = 0
-    var intEatPoints: Int = 0
-    var intCleanPoints: Int = 0
+    var intPlayPoints: Int = 15
+    var intEatPoints: Int = 20
+    var intCleanPoints: Int = 25
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.play)
-        val PlayPoints = findViewById<TextView>(R.id.PlayPoints)
-        PlayPointsTextView.text= panda
-
-        val btnEat= findViewById<Button>(R.id.btnEat)
-        btnEat.setOnClickListener {
-            panda.eat()
-            updateStatus()
-        }
+        findViewById<TextView>(R.id.PlayPoints)
         val btnPlay= findViewById<Button>(R.id.btnPlay)
         btnPlay.setOnClickListener {
-            panda.play()
-            updateStatus()
+            pandaPLay()
         }
-        val btnClean= findViewById<Button>(R.id.btnClean)
-        btnClean. setOnClickListener {
-            panda.clean()
-            updateStatus()
-        }
-        //updateStatus initially updateStatus()
+        fun updateStatus(){
+            var playLevel = (1..15). random()
+            val statusText = this.findViewById<TextView>(R.id.pandaPlay)
+            val panda = null
+            val status = getString(R.string.pandaplay)
+
+        }        }
+    private fun pandaPLay(){
+         TODO("panda is playing")
 
     }
-    private fun updateStatus(){
-        var PlayPoints= findViewById<TextView>(R.id.PlayPoints)
-        val status = "Play:${panda.EatLevel},Play:${panda.Playlevel},Clean:${panda.CleanLeve}"
-        PlayPoints= Status
+}
 
-    }    }

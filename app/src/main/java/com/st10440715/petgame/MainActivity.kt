@@ -5,9 +5,9 @@ import android.os.Bundle
 import android.widget.Button
 
 class MainActivity : AppCompatActivity() {
-    private var hungerLevel = 0
-    private var happinessLevel =50
-    private var energyLevel = 50
+    private var eatLevel = 15
+    private var playLevel = 20
+    private var cleanLevel = 25
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -17,28 +17,28 @@ class MainActivity : AppCompatActivity() {
         btnStart.setOnClickListener {
         }
     }
-    fun feed (){
-        hungerLevel  = 15
-        if (hungerLevel < 0){
-            hungerLevel =0
+    fun eat (){
+        eatLevel  = 15
+        if (eatLevel < 0){
+            eatLevel =0
         }
     }
     fun play(){
-        happinessLevel  = 20
-        energyLevel = 20
-        if (energyLevel > 0){
-            energyLevel = 0
+        playLevel  = 20
+        playLevel = 20
+        if (playLevel > 0){
+            playLevel = 0
         }
     }
-    fun sleep(){
-        energyLevel = 20
-        if (energyLevel>50){
-            energyLevel = 50
+    fun clean(){
+        cleanLevel = 25
+        if (cleanLevel>50){
+            cleanLevel = 50
         }
     }
     fun updatestatus(){
-        hungerLevel = (1..5). random()
-        happinessLevel = (1..5). random()
-        energyLevel = (1..5). random()
+        eatLevel = (1..5). random()
+        playLevel = (1..5). random()
+        cleanLevel = (1..5). random()
     }
 }

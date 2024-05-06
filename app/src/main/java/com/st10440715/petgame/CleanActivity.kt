@@ -1,5 +1,6 @@
 package com.st10440715.petgame
 
+import android.annotation.SuppressLint
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
@@ -7,38 +8,27 @@ import android.widget.TextView
 
 
 class CleanActivity : AppCompatActivity() {
+    var intPlayPoints: Int = 15
+    var intEatPoints: Int = 20
+    var intCleanPoints: Int = 25
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.clean)
-
-        fun PlayPet() {
-            imageview:tvPet
-            imageview.setImageResource(R.firstImagePlay)
-            val btnPlay = findViewById<Button>(R.id.btnPlay)
-            btnPlay.setOnClickListener {
-                PlayPet()
-                intPlayPoints = 10
-                UpdateStatus()
-            }
+        findViewById<TextView>(R.id.CleanPoints)
+        val btnClean= findViewById<Button>(R.id.btnClean)
+        btnClean.setOnClickListener {
+            pandaClean()
         }
+        fun updateStatus(){
+            var cleanLevel = (1..25). random()
+            val statusText= this.findViewById<TextView>(R.id.pandaClean)
+            val panda = null
+            val status = getString(R.string.cleanliness_play, )
 
-        fun FeedPet() {
-            val btnEat = findViewById<Button>(R.id.btnEat)
-            btnEat.setOnClickListener {
-                FeedPet()
-                intEatPoints = 15
-            }
-        }
+        }        }
 
-        fun CleanPet() {
-            val btnClean = findViewById<Button>(R.id.btnClean)
-            btnClean.setOnClickListener {
-                CleanPet()
-                intCleanPoints = 20
-
-            }
-        }
-
-    }
+    private fun pandaClean() {
+        TODO("Panda is cleaning")
     }
 }
